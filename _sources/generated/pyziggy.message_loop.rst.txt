@@ -1,0 +1,25 @@
+﻿pyziggy.message\_loop
+=====================
+
+.. automodule:: pyziggy.message_loop
+
+   
+   .. rubric:: Module Attributes
+
+   .. autosummary::
+   
+      message_loop
+      time_source
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      AsyncCallback
+      AsyncUpdater
+      FastForwardTimeSource
+      MessageLoop
+      MessageLoopTimer
+      SystemTimeSource
+      TimeSource
+   

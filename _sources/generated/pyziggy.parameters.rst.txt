@@ -1,0 +1,27 @@
+﻿pyziggy.parameters
+==================
+
+.. automodule:: pyziggy.parameters
+
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      BinaryParameter
+      CompositeParameter
+      EnumParameter
+      NumericParameter
+      ParameterBase
+      QueryableBinaryParameter
+      QueryableNumericParameter
+      QueryableToggleParameter
+      SettableAndQueryableBinaryParameter
+      SettableAndQueryableNumericParameter
+      SettableAndQueryableToggleParameter
+      SettableBinaryParameter
+      SettableEnumParameter
+      SettableNumericParameter
+      SettableToggleParameter
+      ToggleParameter
+   

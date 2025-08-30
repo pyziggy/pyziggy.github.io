@@ -1,0 +1,16 @@
+﻿pyziggy.device\_bases
+=====================
+
+.. automodule:: pyziggy.device_bases
+
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      CompositeParameterVariant
+      CompositeParameterVariant0
+      LightWithColor
+      LightWithColorTemp
+      LightWithDimming
+   

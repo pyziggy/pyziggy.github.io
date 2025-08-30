@@ -1,0 +1,847 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="pyziggy.util" href="pyziggy.util.html" /><link rel="prev" title="pyziggy.message_loop" href="pyziggy.message_loop.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+        <title>pyziggy.parameters - pyziggy 0.9.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">pyziggy 0.9.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">pyziggy 0.9.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">The basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbook_rst.html">Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-line reference</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../api.html">API reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyziggy.broadcasters.html">pyziggy.broadcasters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyziggy.devices_client.html">pyziggy.devices_client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyziggy.device_bases.html">pyziggy.device_bases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyziggy.message_loop.html">pyziggy.message_loop</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">pyziggy.parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyziggy.util.html">pyziggy.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyziggy.workarounds.html">pyziggy.workarounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyziggy.cli.html">pyziggy.cli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyziggy.run.html">pyziggy.run</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/generated/pyziggy.parameters.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="module-pyziggy.parameters">
+<span id="pyziggy-parameters"></span><h1>pyziggy.parameters<a class="headerlink" href="#module-pyziggy.parameters" title="Link to this heading">¶</a></h1>
+<p>Contains the parameter classes that your code can interact with in order to query and
+modify the device states observable through MQTT.</p>
+<p>You are not expected to directly instantiate any of these classes. The main feature of
+pyziggy is its code generator. The generator will query device information from the MQTT
+broker and generate the <code class="docutils literal notranslate"><span class="pre">pyziggy_autogenerate.available_devices.AvailableDevices</span></code>
+class in your home automation project directory. The public members of this class are
+all the devices that your MQTT broker knows of. The public members of each device are
+parameter objects, which are instances of the classes in this module.</p>
+<p>You are expected to only instantiate an AvailableDevices object, and access the
+autogenerated parameters of its autogenerated devices.</p>
+<p>Zigbee2MQTT has access flags for each parameter. A parameter may be either queryable or
+not, and it may either be read-only or writeable as well. Accordingly, each
+autogenerated parameter object will have the parameter type determined by the access
+flags.</p>
+<dl>
+<dt>Example:</dt><dd><p>Your automation code should access the autogenerated parameters under the devices:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyziggy_autogenerate.available_devices</span><span class="w"> </span><span class="kn">import</span> <span class="n">AvailableDevices</span>
+
+<span class="n">devices</span> <span class="o">=</span> <span class="n">AvailableDevices</span><span class="p">()</span>
+
+<span class="n">devices</span><span class="o">.</span><span class="n">kitchen_light</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can add listeners to be notified of parameter changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kitchen_brightness</span> <span class="o">=</span> <span class="n">devices</span><span class="o">.</span><span class="n">kitchen_light</span><span class="o">.</span><span class="n">brightness</span>
+<span class="n">kitchen_brightness</span><span class="o">.</span><span class="n">add_listener</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Brightness: </span><span class="si">{</span><span class="n">kitchen_brightness</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p class="rubric">Classes</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyziggy.parameters.BinaryParameter" title="pyziggy.parameters.BinaryParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BinaryParameter</span></code></a>(property)</p></td>
+<td><p>A two state parameter that can have a valid value of 0 or 1.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyziggy.parameters.CompositeParameter" title="pyziggy.parameters.CompositeParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeParameter</span></code></a>(property)</p></td>
+<td><p>Base class for Z2M parameters with a <em>type</em> property of <em>composite</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyziggy.parameters.EnumParameter" title="pyziggy.parameters.EnumParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnumParameter</span></code></a>(property, enum_values)</p></td>
+<td><p>Base class for parameters that have a corresponding Z2M parameter with a <em>type</em> of <em>enum</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyziggy.parameters.NumericParameter" title="pyziggy.parameters.NumericParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericParameter</span></code></a>(property, min_value, max_value)</p></td>
+<td><p>A parameter stored as a single floating point number, and limited to between a minimum and maximum value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyziggy.parameters.ParameterBase" title="pyziggy.parameters.ParameterBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParameterBase</span></code></a>(property)</p></td>
+<td><p>A base class for all other parameter types.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyziggy.parameters.QueryableBinaryParameter" title="pyziggy.parameters.QueryableBinaryParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryableBinaryParameter</span></code></a>(property)</p></td>
+<td><p>A BinaryParameter representing a Z2M parameter with a <em>flags</em> property that is <em>queryable</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyziggy.parameters.QueryableNumericParameter" title="pyziggy.parameters.QueryableNumericParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryableNumericParameter</span></code></a>(property, ...)</p></td>
+<td><p>A parameter representing a Z2M <em>numeric</em> parameter with a <em>flags</em> property that is <em>queryable</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyziggy.parameters.QueryableToggleParameter" title="pyziggy.parameters.QueryableToggleParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QueryableToggleParameter</span></code></a>(property)</p></td>
+<td><p>A parameter representing a Z2M <em>toggle</em> parameter with a <em>flags</em> property that is <em>queryable</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyziggy.parameters.SettableAndQueryableBinaryParameter" title="pyziggy.parameters.SettableAndQueryableBinaryParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettableAndQueryableBinaryParameter</span></code></a>(property)</p></td>
+<td><p>A parameter representing a Z2M <em>binary</em> parameter with a <em>flags</em> property that is <em>settable</em> and <em>queryable</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyziggy.parameters.SettableAndQueryableNumericParameter" title="pyziggy.parameters.SettableAndQueryableNumericParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettableAndQueryableNumericParameter</span></code></a>(...)</p></td>
+<td><p>A parameter representing a Z2M <em>numeric</em> parameter with a <em>flags</em> property that is <em>settable</em> and <em>queryable</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyziggy.parameters.SettableAndQueryableToggleParameter" title="pyziggy.parameters.SettableAndQueryableToggleParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettableAndQueryableToggleParameter</span></code></a>(property)</p></td>
+<td><p>A parameter representing a Z2M <em>toggle</em> parameter with a <em>flags</em> property that is <em>settable</em> and <em>queryable</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyziggy.parameters.SettableBinaryParameter" title="pyziggy.parameters.SettableBinaryParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettableBinaryParameter</span></code></a>(property)</p></td>
+<td><p>A parameter representing a Z2M <em>binary</em> parameter with a <em>flags</em> property that is <em>settable</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyziggy.parameters.SettableEnumParameter" title="pyziggy.parameters.SettableEnumParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettableEnumParameter</span></code></a>(property, enum_values)</p></td>
+<td><p>A parameter representing a Z2M <em>enum</em> parameter with a <em>flags</em> property that is <em>settable</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter" title="pyziggy.parameters.SettableNumericParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettableNumericParameter</span></code></a>(property, ...)</p></td>
+<td><p>A parameter representing a Z2M <em>numeric</em> parameter with a <em>flags</em> property that is <em>settable</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyziggy.parameters.SettableToggleParameter" title="pyziggy.parameters.SettableToggleParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettableToggleParameter</span></code></a>(property)</p></td>
+<td><p>A parameter representing a Z2M <em>toggle</em> parameter with a <em>flags</em> property that is <em>settable</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyziggy.parameters.ToggleParameter" title="pyziggy.parameters.ToggleParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ToggleParameter</span></code></a>(property)</p></td>
+<td><p>A two state parameter that can have a valid value of 0 or 1.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.BinaryParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">BinaryParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.BinaryParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.NumericParameter" title="pyziggy.parameters.NumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">NumericParameter</span></code></a></p>
+<p>A two state parameter that can have a valid value of 0 or 1.</p>
+<p>Represents MQTT parameters whose <em>definition.features.type</em> property is <em>binary</em>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.CompositeParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">CompositeParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.CompositeParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.ParameterBase" title="pyziggy.parameters.ParameterBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterBase</span></code></a></p>
+<p>Base class for Z2M parameters with a <em>type</em> property of <em>composite</em>.</p>
+<p>Such parameters are made up of multiple simple parameters. These will be added by
+the pyziggy autogenerator as public members to a derived CompositeParameter class.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composite_param</span> <span class="o">=</span> <span class="n">devices</span><span class="o">.</span><span class="n">color_bulb</span><span class="o">.</span><span class="n">color_hs</span>
+<span class="n">composite_param</span><span class="o">.</span><span class="n">hue</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">composite_param</span><span class="o">.</span><span class="n">saturation</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.CompositeParameter.mark_as_stale">
+<em class="property"><span class="k"><span class="pre">final</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mark_as_stale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.CompositeParameter.mark_as_stale" title="Link to this definition">¶</a></dt>
+<dd><p>Use this function to mark the parameter as stale, if for whatever reason,
+we can’t assume that the parameter’s value correctly reflects the physical
+device’s state.</p>
+<p>This will override the default logic where the
+<a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SettableNumericParameter.set()</span></code></a> and
+<a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set_normalized" title="pyziggy.parameters.SettableNumericParameter.set_normalized"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SettableNumericParameter.set_normalized()</span></code></a> functions only emit MQTT
+messages if the parameter’s stored state is different from the new one.</p>
+<p>This way you can practically force emitting an MQTT message that requires the
+device parameter to be set to the required value. The first
+:<a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SettableNumericParameter.set()</span></code></a> or
+<a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set_normalized" title="pyziggy.parameters.SettableNumericParameter.set_normalized"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SettableNumericParameter.set_normalized()</span></code></a> call clears the stale state,
+returning the parameter logic to follow the default behavior.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.EnumParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">EnumParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enum_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.EnumParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.NumericParameter" title="pyziggy.parameters.NumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">NumericParameter</span></code></a></p>
+<p>Base class for parameters that have a corresponding Z2M parameter with a <em>type</em> of
+<em>enum</em>.</p>
+<p>The pyziggy autogenerator generates derived classes that return and take concrete
+enum types also autogenerated based on Z2M parameter information. These derived
+classes will all have a public <code class="docutils literal notranslate"><span class="pre">enum_type</span></code> member to provide type safety and code
+completion.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">light_switch_handler</span><span class="p">():</span>
+    <span class="n">action_enum</span> <span class="o">=</span> <span class="n">devices</span><span class="o">.</span><span class="n">light_switch</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">enum_type</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">devices</span><span class="o">.</span><span class="n">ikea_remote</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">get_enum_value</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="n">action_enum</span><span class="o">.</span><span class="n">brightness_move_up</span><span class="p">:</span>
+        <span class="n">kitchen_light</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">add_normalized</span><span class="p">(</span><span class="mf">0.075</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="n">action_enum</span><span class="o">.</span><span class="n">brightness_move_down</span><span class="p">:</span>
+        <span class="n">kitchen_light</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">add_normalized</span><span class="p">(</span><span class="o">-</span><span class="mf">0.075</span><span class="p">)</span>
+
+<span class="n">devices</span><span class="o">.</span><span class="n">light_switch</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">add_listener</span><span class="p">(</span><span class="n">light_switch_handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.NumericParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">NumericParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.NumericParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.ParameterBase" title="pyziggy.parameters.ParameterBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterBase</span></code></a></p>
+<p>A parameter stored as a single floating point number, and limited to between a
+minimum and maximum value.</p>
+<p>This value is used to represent Z2M parameters whether they have an integral or
+floating point representation and granularity.</p>
+<p>The minimum and maximum values are determined by the pyziggy generator based on the
+parameter information shared by Z2M. Sometimes Z2M fails to report these values,
+specifically I’ve seen them missing for members of CompositeParameters.
+In this case the generator will choose a very large default range to avoid
+accidentally clamping the values exchanged with Z2M.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.NumericParameter.get">
+<em class="property"><span class="k"><span class="pre">final</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyziggy.parameters.NumericParameter.get" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parameter’s raw value as it is known by Z2M.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.NumericParameter.get_maximum">
+<span class="sig-name descname"><span class="pre">get_maximum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyziggy.parameters.NumericParameter.get_maximum" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The upper limit (inclusive) of this parameter’s permitted range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.NumericParameter.get_minimum">
+<span class="sig-name descname"><span class="pre">get_minimum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyziggy.parameters.NumericParameter.get_minimum" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The lower limit (inclusive) of this parameter’s permitted range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.NumericParameter.get_normalized">
+<em class="property"><span class="k"><span class="pre">final</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_normalized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyziggy.parameters.NumericParameter.get_normalized" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parameter’s value mapped to the range [0.0, 1.0].
+The range’s start and end represent the values returned by
+<a class="reference internal" href="#pyziggy.parameters.NumericParameter.get_minimum" title="pyziggy.parameters.NumericParameter.get_minimum"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_minimum()</span></code></a> and <a class="reference internal" href="#pyziggy.parameters.NumericParameter.get_maximum" title="pyziggy.parameters.NumericParameter.get_maximum"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_maximum()</span></code></a> and the mapping is
+linear.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.NumericParameter.set_always_call_listeners_on_report">
+<span class="sig-name descname"><span class="pre">set_always_call_listeners_on_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.parameters.NumericParameter.set_always_call_listeners_on_report" title="Link to this definition">¶</a></dt>
+<dd><p>Call this function with a True value to always call listeners whenever an
+update is received from Z2M for the parameter.</p>
+<p>The default value for the underlying setting is False.</p>
+<p>By default, listeners are only called if the update received from Z2M changes
+the value compared to the last time when the listeners were called.</p>
+<p>The pyziggy framework has a workarounds module that tries to ensure that this
+value is set to True whenever it makes sense, so you generally shouldn’t need to
+call this function.</p>
+<p>For example the True setting is useful for <em>action</em> parameters in general.
+Certain light switches for example will send a parameter update for the <em>action</em>
+parameter with a <em>brightness_up</em> value, whenever the brightness increase button
+is pressed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.NumericParameter.set_call_listeners_synchronously">
+<span class="sig-name descname"><span class="pre">set_call_listeners_synchronously</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.parameters.NumericParameter.set_call_listeners_synchronously" title="Link to this definition">¶</a></dt>
+<dd><p>Sets whether the parameter’s listeners should be called synchronously when the
+value changes.</p>
+<p>The default value for the underlying setting is False.</p>
+<p>The pyziggy framework has a workarounds module that tries to ensure that this
+value is set to True whenever it makes sense, so you generally shouldn’t need to
+call this function.</p>
+<p><strong>Default parameter listener callback behavior</strong>:</p>
+<blockquote>
+<div><p>Parameter callbacks are called asynchronously by default. A practical
+consequence of this, is that <code class="docutils literal notranslate"><span class="pre">callback</span></code> in the following example will
+only be called at most once after <code class="docutils literal notranslate"><span class="pre">event_handler</span></code> has run. It will only
+happen if the parameter value has changed since the last time the listeners
+were called.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Brightness changed to: </span><span class="si">{</span><span class="n">devices</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">devices</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">add_listener</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">event_handler</span><span class="p">():</span>
+    <span class="n">devices</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">devices</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">devices</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This also means that <code class="docutils literal notranslate"><span class="pre">callback</span></code> cannot observe the transient values during
+the execution of <code class="docutils literal notranslate"><span class="pre">event_handler</span></code>. This behavior is intentional and is
+meant to avoid cascading event callback storms in callback heavy projects.</p>
+</div></blockquote>
+<p><strong>Discussion</strong>:</p>
+<blockquote>
+<div><p>Calling this function with True is useful for parameters where transient
+values are significant. For example, it’s possible that we receive multiple
+consecutive changes to a parameter’s value in a single sub-second message
+window, but we still need to to observe and serve them all. An <em>action</em>
+parameter of a rotary dial, or brightness increasing switch could be such a
+parameter.</p>
+<p>As a counter example, if the brightness of a bulb changes in quick succession
+from 0 to 40 in 0.1 seconds, we probably don’t want to take action on all the
+intermediate values, but only on the final value at the end of the 0.1 second
+period.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.ParameterBase">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">ParameterBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.ParameterBase" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyziggy.broadcasters.html#pyziggy.broadcasters.Broadcaster" title="pyziggy.broadcasters.Broadcaster"><code class="xref py py-class docutils literal notranslate"><span class="pre">Broadcaster</span></code></a></p>
+<p>A base class for all other parameter types.</p>
+<p>This type inherits from <a class="reference internal" href="pyziggy.broadcasters.html#pyziggy.broadcasters.Broadcaster" title="pyziggy.broadcasters.Broadcaster"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyziggy.broadcasters.Broadcaster</span></code></a>, so you can call
+<a class="reference internal" href="pyziggy.broadcasters.html#pyziggy.broadcasters.Broadcaster.add_listener" title="pyziggy.broadcasters.Broadcaster.add_listener"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyziggy.broadcasters.Broadcaster.add_listener()</span></code></a> on all parameter objects to be
+notified when their value changes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.ParameterBase.get_property_name">
+<em class="property"><span class="k"><span class="pre">final</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_property_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.ParameterBase.get_property_name" title="Link to this definition">¶</a></dt>
+<dd><p>Used internally. You generally shouldn’t need to call this function, as the
+property name isn’t used anywhere on the pyziggy public APIs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The name of the parameter as it’s known by MQTT.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.QueryableBinaryParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">QueryableBinaryParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.QueryableBinaryParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.BinaryParameter" title="pyziggy.parameters.BinaryParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryParameter</span></code></a>, <a class="reference internal" href="#pyziggy.parameters.QueryableNumericParameter" title="pyziggy.parameters.QueryableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryableNumericParameter</span></code></a></p>
+<p>A BinaryParameter representing a Z2M parameter with a <em>flags</em> property that is <em>queryable</em></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.QueryableNumericParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">QueryableNumericParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.QueryableNumericParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.NumericParameter" title="pyziggy.parameters.NumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">NumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>numeric</em> parameter with a <em>flags</em> property that is
+<em>queryable</em>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.QueryableNumericParameter.query_device">
+<span class="sig-name descname"><span class="pre">query_device</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.parameters.QueryableNumericParameter.query_device" title="Link to this definition">¶</a></dt>
+<dd><p>Instructs Z2M to query the device for the current value of this parameter.</p>
+<p>This can typically be available for battery powered devices that don’t update
+their actual parameter values frequently.</p>
+<p>If the query procedure is successful Z2M will send a value update, which updates
+the parameter value and fires any added listeners.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.QueryableToggleParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">QueryableToggleParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.QueryableToggleParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.ToggleParameter" title="pyziggy.parameters.ToggleParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToggleParameter</span></code></a>, <a class="reference internal" href="#pyziggy.parameters.QueryableNumericParameter" title="pyziggy.parameters.QueryableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryableNumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>toggle</em> parameter with a <em>flags</em> property that is
+<em>queryable</em>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableAndQueryableBinaryParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">SettableAndQueryableBinaryParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.SettableAndQueryableBinaryParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.BinaryParameter" title="pyziggy.parameters.BinaryParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryParameter</span></code></a>, <a class="reference internal" href="#pyziggy.parameters.SettableAndQueryableNumericParameter" title="pyziggy.parameters.SettableAndQueryableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SettableAndQueryableNumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>binary</em> parameter with a <em>flags</em> property that is
+<em>settable</em> and <em>queryable</em>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableAndQueryableNumericParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">SettableAndQueryableNumericParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.SettableAndQueryableNumericParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.QueryableNumericParameter" title="pyziggy.parameters.QueryableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryableNumericParameter</span></code></a>, <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter" title="pyziggy.parameters.SettableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SettableNumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>numeric</em> parameter with a <em>flags</em> property that is
+<em>settable</em> and <em>queryable</em>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableAndQueryableToggleParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">SettableAndQueryableToggleParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.SettableAndQueryableToggleParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.ToggleParameter" title="pyziggy.parameters.ToggleParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToggleParameter</span></code></a>, <a class="reference internal" href="#pyziggy.parameters.SettableAndQueryableNumericParameter" title="pyziggy.parameters.SettableAndQueryableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SettableAndQueryableNumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>toggle</em> parameter with a <em>flags</em> property that is
+<em>settable</em> and <em>queryable</em>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableBinaryParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">SettableBinaryParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.SettableBinaryParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.BinaryParameter" title="pyziggy.parameters.BinaryParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryParameter</span></code></a>, <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter" title="pyziggy.parameters.SettableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SettableNumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>binary</em> parameter with a <em>flags</em> property that is
+<em>settable</em>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableEnumParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">SettableEnumParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enum_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.SettableEnumParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.EnumParameter" title="pyziggy.parameters.EnumParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumParameter</span></code></a>, <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter" title="pyziggy.parameters.SettableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SettableNumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>enum</em> parameter with a <em>flags</em> property that is
+<em>settable</em>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableNumericParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">SettableNumericParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.SettableNumericParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.NumericParameter" title="pyziggy.parameters.NumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">NumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>numeric</em> parameter with a <em>flags</em> property that is
+<em>settable</em>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableNumericParameter.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.parameters.SettableNumericParameter.add" title="Link to this definition">¶</a></dt>
+<dd><p>Equivalent to calling <code class="docutils literal notranslate"><span class="pre">set(get()</span> <span class="pre">+</span> <span class="pre">value)</span></code>.</p>
+<p>The resulting value will be clamped to the permitted range.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableNumericParameter.add_normalized">
+<span class="sig-name descname"><span class="pre">add_normalized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.parameters.SettableNumericParameter.add_normalized" title="Link to this definition">¶</a></dt>
+<dd><p>Equivalent to calling <code class="docutils literal notranslate"><span class="pre">set_normalized(get_normalized()</span> <span class="pre">+</span> <span class="pre">value)</span></code>.</p>
+<p>The resulting value will be clamped to the permitted range.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableNumericParameter.mark_as_stale">
+<span class="sig-name descname"><span class="pre">mark_as_stale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.SettableNumericParameter.mark_as_stale" title="Link to this definition">¶</a></dt>
+<dd><p>Use this function to mark the parameter as stale, if for whatever reason,
+we can’t assume that the parameter’s value correctly reflects the physical
+device’s state.</p>
+<p>This will override the default logic where the <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code></a> and
+<a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set_normalized" title="pyziggy.parameters.SettableNumericParameter.set_normalized"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_normalized()</span></code></a> functions only emit MQTT messages if the parameter’s
+stored state is different from the new one.</p>
+<p>This way you can practically force emitting an MQTT message that requires the
+device parameter to be set to the required value. The first <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code></a> or
+<a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set_normalized" title="pyziggy.parameters.SettableNumericParameter.set_normalized"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_normalized()</span></code></a> call clears the stale state, returning the parameter
+logic to follow the default behavior.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableNumericParameter.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.parameters.SettableNumericParameter.set" title="Link to this definition">¶</a></dt>
+<dd><p>Set the parameter’s desired value. This will instruct Z2M to change the
+corresponding device’s parameter to this value.</p>
+<p>The provided value should be in the MQTT parameter’s original range
+e.g. a typical <em>brightness</em> parameter will have raw values between 0 and 254,
+and a <em>color_temp</em> parameter between 250 and 454.</p>
+<p>The passed in value will be clamped to the permitted range.</p>
+<p><strong>MQTT communication behavior</strong>:</p>
+<blockquote>
+<div><p>The pyziggy framework keeps track of parameter values sent and received and has
+logic to avoid unnecessarily sending MQTT messages. Calling <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code></a> with
+the same value that the parameter already has will not emit any MQTT messages,
+unless <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.mark_as_stale" title="pyziggy.parameters.SettableNumericParameter.mark_as_stale"><code class="xref py py-func docutils literal notranslate"><span class="pre">mark_as_stale()</span></code></a> has been called on the parameter prior to
+<a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code></a>.</p>
+<p>The logic that determines whether a parameter value changed runs
+asynchronously, and this is responsible for sending the MQTT messages as
+well. This means that it can only happen after the entire call stack has
+been unwound on which <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code></a> has been called. A practical consequence
+of this, is that the callback in the following example can emit at most a
+single MQTT message. It will do so if the final value of the parameter is
+different from what Z2M thinks it is.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">():</span>
+    <span class="n">devices</span><span class="o">.</span><span class="n">light_bulb</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">devices</span><span class="o">.</span><span class="n">light_bulb</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">devices</span><span class="o">.</span><span class="n">light_bulb</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">devices</span><span class="o">.</span><span class="n">light_bulb</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">devices</span><span class="o">.</span><span class="n">light_switch</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">add_listener</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This behavior is intentional and is meant to eliminate unnecessary MQTT
+communication in callback heavy projects.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableNumericParameter.set_normalized">
+<span class="sig-name descname"><span class="pre">set_normalized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.parameters.SettableNumericParameter.set_normalized" title="Link to this definition">¶</a></dt>
+<dd><p>Set the parameter’s desired value by passing a number between 0.0 and 1.0.</p>
+<p>This value will be automatically converted to the range of the MQTT parameter
+e.g. a typical <em>brightness</em> parameter will have raw values between 0 and 254,
+and a <em>color_temp</em> parameter between 250 and 454. Calling <code class="docutils literal notranslate"><span class="pre">set_normalized(0.0)</span></code>
+or <code class="docutils literal notranslate"><span class="pre">set_normalized(1.0)</span></code> will set both to their respective minimum or maximum
+values.</p>
+<p>The passed in value will be clamped to the permitted range.</p>
+<p>This function internally calls <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code></a>, consequently its <em>MQTT
+communication behavior</em> is the same.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.SettableToggleParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">SettableToggleParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.SettableToggleParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.ToggleParameter" title="pyziggy.parameters.ToggleParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ToggleParameter</span></code></a>, <a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter" title="pyziggy.parameters.SettableNumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SettableNumericParameter</span></code></a></p>
+<p>A parameter representing a Z2M <em>toggle</em> parameter with a <em>flags</em> property that is
+<em>settable</em>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyziggy.parameters.ToggleParameter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyziggy.parameters.</span></span><span class="sig-name descname"><span class="pre">ToggleParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyziggy.parameters.ToggleParameter" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyziggy.parameters.NumericParameter" title="pyziggy.parameters.NumericParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">NumericParameter</span></code></a></p>
+<p>A two state parameter that can have a valid value of 0 or 1.</p>
+<p>Represents MQTT parameters whose <em>definition.features.type</em> property is <em>toggle</em>.</p>
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="pyziggy.util.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">pyziggy.util</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="pyziggy.message_loop.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">pyziggy.message_loop</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Attila Szarvas
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">pyziggy.parameters</a><ul>
+<li><a class="reference internal" href="#pyziggy.parameters.BinaryParameter"><code class="docutils literal notranslate"><span class="pre">BinaryParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.CompositeParameter"><code class="docutils literal notranslate"><span class="pre">CompositeParameter</span></code></a><ul>
+<li><a class="reference internal" href="#pyziggy.parameters.CompositeParameter.mark_as_stale"><code class="docutils literal notranslate"><span class="pre">CompositeParameter.mark_as_stale()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyziggy.parameters.EnumParameter"><code class="docutils literal notranslate"><span class="pre">EnumParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.NumericParameter"><code class="docutils literal notranslate"><span class="pre">NumericParameter</span></code></a><ul>
+<li><a class="reference internal" href="#pyziggy.parameters.NumericParameter.get"><code class="docutils literal notranslate"><span class="pre">NumericParameter.get()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.NumericParameter.get_maximum"><code class="docutils literal notranslate"><span class="pre">NumericParameter.get_maximum()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.NumericParameter.get_minimum"><code class="docutils literal notranslate"><span class="pre">NumericParameter.get_minimum()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.NumericParameter.get_normalized"><code class="docutils literal notranslate"><span class="pre">NumericParameter.get_normalized()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.NumericParameter.set_always_call_listeners_on_report"><code class="docutils literal notranslate"><span class="pre">NumericParameter.set_always_call_listeners_on_report()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.NumericParameter.set_call_listeners_synchronously"><code class="docutils literal notranslate"><span class="pre">NumericParameter.set_call_listeners_synchronously()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyziggy.parameters.ParameterBase"><code class="docutils literal notranslate"><span class="pre">ParameterBase</span></code></a><ul>
+<li><a class="reference internal" href="#pyziggy.parameters.ParameterBase.get_property_name"><code class="docutils literal notranslate"><span class="pre">ParameterBase.get_property_name()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyziggy.parameters.QueryableBinaryParameter"><code class="docutils literal notranslate"><span class="pre">QueryableBinaryParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.QueryableNumericParameter"><code class="docutils literal notranslate"><span class="pre">QueryableNumericParameter</span></code></a><ul>
+<li><a class="reference internal" href="#pyziggy.parameters.QueryableNumericParameter.query_device"><code class="docutils literal notranslate"><span class="pre">QueryableNumericParameter.query_device()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyziggy.parameters.QueryableToggleParameter"><code class="docutils literal notranslate"><span class="pre">QueryableToggleParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableAndQueryableBinaryParameter"><code class="docutils literal notranslate"><span class="pre">SettableAndQueryableBinaryParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableAndQueryableNumericParameter"><code class="docutils literal notranslate"><span class="pre">SettableAndQueryableNumericParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableAndQueryableToggleParameter"><code class="docutils literal notranslate"><span class="pre">SettableAndQueryableToggleParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableBinaryParameter"><code class="docutils literal notranslate"><span class="pre">SettableBinaryParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableEnumParameter"><code class="docutils literal notranslate"><span class="pre">SettableEnumParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter"><code class="docutils literal notranslate"><span class="pre">SettableNumericParameter</span></code></a><ul>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.add"><code class="docutils literal notranslate"><span class="pre">SettableNumericParameter.add()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.add_normalized"><code class="docutils literal notranslate"><span class="pre">SettableNumericParameter.add_normalized()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.mark_as_stale"><code class="docutils literal notranslate"><span class="pre">SettableNumericParameter.mark_as_stale()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set"><code class="docutils literal notranslate"><span class="pre">SettableNumericParameter.set()</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableNumericParameter.set_normalized"><code class="docutils literal notranslate"><span class="pre">SettableNumericParameter.set_normalized()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyziggy.parameters.SettableToggleParameter"><code class="docutils literal notranslate"><span class="pre">SettableToggleParameter</span></code></a></li>
+<li><a class="reference internal" href="#pyziggy.parameters.ToggleParameter"><code class="docutils literal notranslate"><span class="pre">ToggleParameter</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=9dc39874"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

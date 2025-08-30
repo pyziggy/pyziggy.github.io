@@ -1,0 +1,18 @@
+﻿pyziggy.run
+===========
+
+.. automodule:: pyziggy.run
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      run_command
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      PyziggyConfig
+   

@@ -1,0 +1,13 @@
+﻿pyziggy.devices\_client
+=======================
+
+.. automodule:: pyziggy.devices_client
+
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Device
+      DevicesClient
+   

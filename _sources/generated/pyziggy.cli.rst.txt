@@ -1,0 +1,12 @@
+﻿pyziggy.cli
+===========
+
+.. automodule:: pyziggy.cli
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      main
+   

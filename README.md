@@ -1,2 +1,2 @@
-# pyziggy.github.io
-pyziggy documentation
+Repository for the https://pyziggy.github.io site.
+

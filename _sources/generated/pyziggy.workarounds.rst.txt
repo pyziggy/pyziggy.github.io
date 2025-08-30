@@ -1,0 +1,19 @@
+﻿pyziggy.workarounds
+===================
+
+.. automodule:: pyziggy.workarounds
+
+   
+   .. rubric:: Module Attributes
+
+   .. autosummary::
+   
+      applied_workarounds
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Workaround
+      Workarounds
+   
