@@ -263,7 +263,7 @@
 <h3>Debugging your automation<a class="headerlink" href="#debugging-your-automation" title="Link to this heading">¶</a></h3>
 <p>This recipe also assumes, that pyziggy has been installed in the virtual environment under <code class="docutils literal notranslate"><span class="pre">my_automation/.venv</span></code>.</p>
 <p>Open <code class="docutils literal notranslate"><span class="pre">my_automation</span></code> in PyCharm. It should detect the <code class="docutils literal notranslate"><span class="pre">.venv</span></code> subdirectory and automatically configure your environment.</p>
-<p>Open the <code class="docutils literal notranslate"><span class="pre">my_automation.py</span></code> file from the project pane, right click in its editor window, and select <em>“Modify Run Configuration…”</em>. Provide the following details</p>
+<p>Open the <code class="docutils literal notranslate"><span class="pre">automation.py</span></code> file from the project pane, right click in its editor window, and select <em>“Modify Run Configuration…”</em>. Provide the following details</p>
 <p><img alt="Run configuration for automation.py" src="_images/debug_configuration.png" /></p>
 <p>Now you can press the debug button in PyCharm, and it should stop at breakpoints.</p>
 </section>
@@ -315,7 +315,7 @@
 <span class="n">devices</span><span class="o">.</span><span class="n">on_connect</span><span class="o">.</span><span class="n">add_listener</span><span class="p">(</span><span class="n">turn_on_and_exit</span><span class="p">)</span>    
 </pre></div>
 </div>
-<p>Since this script unconditionally changes parameters, and doesn’t care about any state in the system, it is a perfect candidate for using the <code class="docutils literal notranslate"><span class="pre">--no_startup_query</span></code> argument. For more about this, see the <a href="cli.html#named-arguments">Command-line-reference</a>.</p>
+<p>Since this script unconditionally changes parameters, and doesn’t care about any state in the system, it is a perfect candidate for using the <code class="docutils literal notranslate"><span class="pre">--no_startup_query</span></code> argument. For more about this, see the <a href="cli.html#named-arguments">Command-line reference</a>.</p>
 <p>Note the call to <a class="reference internal" href="generated/pyziggy.message_loop.html#pyziggy.message_loop.MessageLoop.stop_after_a_second" title="pyziggy.message_loop.MessageLoop.stop_after_a_second"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyziggy.message_loop.MessageLoop.stop_after_a_second()</span></code></a> as opposed to calling <a class="reference internal" href="generated/pyziggy.message_loop.html#pyziggy.message_loop.MessageLoop.stop" title="pyziggy.message_loop.MessageLoop.stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyziggy.message_loop.MessageLoop.stop()</span></code></a>. This is necessary, because <code class="docutils literal notranslate"><span class="pre">stop()</span></code> would immediately exit the message loop, and the pyziggy wouldn’t have a chance to send the MQTT messages for the light.</p>
 <p><em><strong>Side note:</strong></em> For more on this behaviour, see</p>
 <ul class="simple">
@@ -362,7 +362,7 @@
 <span class="n">_</span> <span class="o">=</span> <span class="n">MyTasks</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Since this script unconditionally changes parameters, and doesn’t care about any state in the system, it is a perfect candidate for using the <code class="docutils literal notranslate"><span class="pre">--no_startup_query</span></code> argument. For more about this, see the <a href="cli.html#named-arguments">Command-line-reference</a>.</p>
+<p>Since this script unconditionally changes parameters, and doesn’t care about any state in the system, it is a perfect candidate for using the <code class="docutils literal notranslate"><span class="pre">--no_startup_query</span></code> argument. For more about this, see the <a href="cli.html#named-arguments">Command-line reference</a>.</p>
 <p>For more on the utility class, see</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="generated/pyziggy.util.html#pyziggy.util.TimedRunner" title="pyziggy.util.TimedRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyziggy.util.TimedRunner</span></code></a></p></li>
