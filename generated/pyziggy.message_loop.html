@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="pyziggy.parameters" href="pyziggy.parameters.html" /><link rel="prev" title="pyziggy.device_bases" href="pyziggy.device_bases.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>pyziggy.message_loop - pyziggy 0.9.1 documentation</title>
+        <title>pyziggy.message_loop - pyziggy 0.9.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -167,7 +167,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">pyziggy 0.9.1 documentation</div></a>
+      <a href="../index.html"><div class="brand">pyziggy 0.9.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,7 +190,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  <span class="sidebar-brand-text">pyziggy 0.9.1 documentation</span>
+  <span class="sidebar-brand-text">pyziggy 0.9.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -383,7 +383,7 @@ thread.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyziggy.message_loop.MessageLoop.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.message_loop.MessageLoop.run" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pyziggy.message_loop.MessageLoop.run" title="Link to this definition">¶</a></dt>
 <dd><p>Enters an infinite loop queuing and dispatching messages. To exit
 the loop call <a class="reference internal" href="#pyziggy.message_loop.MessageLoop.stop" title="pyziggy.message_loop.MessageLoop.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a>.</p>
 <p>A minimal self-contained example of this is as follows:</p>
@@ -400,13 +400,13 @@ the loop call <a class="reference internal" href="#pyziggy.message_loop.MessageL
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyziggy.message_loop.MessageLoop.stop">
-<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.message_loop.MessageLoop.stop" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.message_loop.MessageLoop.stop" title="Link to this definition">¶</a></dt>
 <dd><p>Exits the infinite message loop and allows clean termination of the program.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyziggy.message_loop.MessageLoop.stop_after_a_second">
-<span class="sig-name descname"><span class="pre">stop_after_a_second</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.message_loop.MessageLoop.stop_after_a_second" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">stop_after_a_second</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyziggy.message_loop.MessageLoop.stop_after_a_second" title="Link to this definition">¶</a></dt>
 <dd><p>One second after the call, exits the infinite message loop and allows clean
 termination of the program. This allows communicating MQTT messages that
 originate from the same call stack as this call.</p>
@@ -617,7 +617,7 @@ unit tests that use <a class="reference internal" href="#pyziggy.message_loop.Me
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=9dc39874"></script>
+</div><script src="../_static/documentation_options.js?v=aa3b121e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

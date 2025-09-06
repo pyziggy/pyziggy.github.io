@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Command-line reference" href="cli.html" /><link rel="prev" title="pyziggy" href="index.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>Cookbook - pyziggy 0.9.1 documentation</title>
+        <title>Cookbook - pyziggy 0.9.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -167,7 +167,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">pyziggy 0.9.1 documentation</div></a>
+      <a href="index.html"><div class="brand">pyziggy 0.9.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,7 +190,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
-  <span class="sidebar-brand-text">pyziggy 0.9.1 documentation</span>
+  <span class="sidebar-brand-text">pyziggy 0.9.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -316,7 +316,7 @@
 </pre></div>
 </div>
 <p>Since this script unconditionally changes parameters, and doesn’t care about any state in the system, it is a perfect candidate for using the <code class="docutils literal notranslate"><span class="pre">--no_startup_query</span></code> argument. For more about this, see the <a href="cli.html#named-arguments">Command-line reference</a>.</p>
-<p>Note the call to <a class="reference internal" href="generated/pyziggy.message_loop.html#pyziggy.message_loop.MessageLoop.stop_after_a_second" title="pyziggy.message_loop.MessageLoop.stop_after_a_second"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyziggy.message_loop.MessageLoop.stop_after_a_second()</span></code></a> as opposed to calling <a class="reference internal" href="generated/pyziggy.message_loop.html#pyziggy.message_loop.MessageLoop.stop" title="pyziggy.message_loop.MessageLoop.stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyziggy.message_loop.MessageLoop.stop()</span></code></a>. This is necessary, because <code class="docutils literal notranslate"><span class="pre">stop()</span></code> would immediately exit the message loop, and the pyziggy wouldn’t have a chance to send the MQTT messages for the light.</p>
+<p>Note the call to <a class="reference internal" href="generated/pyziggy.message_loop.html#pyziggy.message_loop.MessageLoop.stop_after_a_second" title="pyziggy.message_loop.MessageLoop.stop_after_a_second"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyziggy.message_loop.MessageLoop.stop_after_a_second()</span></code></a> as opposed to calling <a class="reference internal" href="generated/pyziggy.message_loop.html#pyziggy.message_loop.MessageLoop.stop" title="pyziggy.message_loop.MessageLoop.stop"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyziggy.message_loop.MessageLoop.stop()</span></code></a>. This is necessary, because <code class="docutils literal notranslate"><span class="pre">stop()</span></code> would immediately exit the message loop, and pyziggy wouldn’t have a chance to send the MQTT messages for the light.</p>
 <p><em><strong>Side note:</strong></em> For more on this behaviour, see</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="generated/pyziggy.parameters.html#pyziggy.parameters.SettableNumericParameter.set" title="pyziggy.parameters.SettableNumericParameter.set"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyziggy.parameters.SettableNumericParameter.set()</span></code></a>.</p></li>
@@ -425,7 +425,7 @@
 <section id="create-a-self-contained-executable-script">
 <h3>Create a self-contained, executable script<a class="headerlink" href="#create-a-self-contained-executable-script" title="Link to this heading">¶</a></h3>
 <p>Until now, all examples used the <code class="docutils literal notranslate"><span class="pre">pyziggy</span> <span class="pre">run</span> <span class="pre">automation.py</span></code> command. This recipe shows how to create a single <code class="docutils literal notranslate"><span class="pre">.py</span></code> script that you can execute directly.</p>
-<p>The downside of this approach is, that it doesn’t connect to MQTT prior to launching your automation and doesn’t regenerate the <code class="docutils literal notranslate"><span class="pre">AvailableDevices</span></code> type, so it can contain out-of-date information. Because of this, I don’t recommend this, but it can be done.</p>
+<p>The downside of this approach is, that it doesn’t connect to MQTT prior to launching your automation and doesn’t regenerate the <code class="docutils literal notranslate"><span class="pre">AvailableDevices</span></code> type, so it can contain out-of-date information. For this reason, I don’t recommend this, but it can be done.</p>
 <p>The full contents of <code class="docutils literal notranslate"><span class="pre">automation.py</span></code> for such a task would be as follows.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyziggy</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyziggyConfig</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyziggy.run</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_command</span>
@@ -636,7 +636,7 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=9dc39874"></script>
+</div><script src="_static/documentation_options.js?v=aa3b121e"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>

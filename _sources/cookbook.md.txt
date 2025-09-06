@@ -68,7 +68,7 @@ devices.on_connect.add_listener(turn_on_and_exit)
 
 Since this script unconditionally changes parameters, and doesn't care about any state in the system, it is a perfect candidate for using the `--no_startup_query` argument. For more about this, see the <a href="cli.html#named-arguments">Command-line reference</a>. 
 
-Note the call to {func}`pyziggy.message_loop.MessageLoop.stop_after_a_second` as opposed to calling {func}`pyziggy.message_loop.MessageLoop.stop`. This is necessary, because `stop()` would immediately exit the message loop, and the pyziggy wouldn't have a chance to send the MQTT messages for the light.
+Note the call to {func}`pyziggy.message_loop.MessageLoop.stop_after_a_second` as opposed to calling {func}`pyziggy.message_loop.MessageLoop.stop`. This is necessary, because `stop()` would immediately exit the message loop, and pyziggy wouldn't have a chance to send the MQTT messages for the light.
 
 ***Side note:*** For more on this behaviour, see 
 * {func}`pyziggy.parameters.SettableNumericParameter.set`.
@@ -183,7 +183,7 @@ With a POST endpoint exposed, like above, it's very easy to trigger pyziggy auto
 
 Until now, all examples used the `pyziggy run automation.py` command. This recipe shows how to create a single `.py` script that you can execute directly.
 
-The downside of this approach is, that it doesn't connect to MQTT prior to launching your automation and doesn't regenerate the `AvailableDevices` type, so it can contain out-of-date information. Because of this, I don't recommend this, but it can be done.
+The downside of this approach is, that it doesn't connect to MQTT prior to launching your automation and doesn't regenerate the `AvailableDevices` type, so it can contain out-of-date information. For this reason, I don't recommend this, but it can be done.
 
 The full contents of `automation.py` for such a task would be as follows.
 

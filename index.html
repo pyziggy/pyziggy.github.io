@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Cookbook" href="cookbook_rst.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>pyziggy 0.9.1 documentation</title>
+        <title>pyziggy 0.9.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -167,7 +167,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">pyziggy 0.9.1 documentation</div></a>
+      <a href="#"><div class="brand">pyziggy 0.9.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,7 +190,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
   
-  <span class="sidebar-brand-text">pyziggy 0.9.1 documentation</span>
+  <span class="sidebar-brand-text">pyziggy 0.9.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -258,9 +258,9 @@
 <h1>pyziggy<a class="headerlink" href="#pyziggy" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="https://github.com/bebump/pyziggy">Source&#64;Github</a>　—　<a class="reference external" href="https://pyziggy.github.io">Documentation</a>　—　<a class="reference external" href="https://pypi.org/project/pyziggy">PyPI</a></p>
 <hr class="docutils" />
-<p>Pyziggy is a code generator and runtime framework for creating <a class="reference external" href="https://www.zigbee2mqtt.io">Zigbee2MQTT</a> automation projects without any boilerplate. Boilerplate is things, like remembering device and parameter names, and correctly citing them as strings. This is information that Zigbee2MQTT already knows, and it can be encoded in class hierarchies and the type system.</p>
-<p>Pyziggy automatically generates a reasonably well-typed package in your project directory, with information about devices and parameters that Zigbee2MQTT knows about. When launching your automation it uses mypy to check the correctness of your project.</p>
-<p>This way, instead of composing and parsing MQTT messages, user scripts can mutate Python objects to interact with the Zigbee network. Using an IDE you should have full code completion to take the guesswork out of interacting with your smart devices.</p>
+<p>Pyziggy is a code generator and runtime framework for creating <a class="reference external" href="https://www.zigbee2mqtt.io">Zigbee2MQTT</a> automation projects, without jumping through hoops, like having to remember device or parameter names, and citing them correctly as strings. This information is already available through Zigbee2MQTT, so it can be encoded in class hierarchies and the type system.</p>
+<p>Pyziggy automatically generates a typed package in your project directory containing information about devices and parameters that Zigbee2MQTT knows about. Your automation project can import this package, and use simple setters and getters on Python objects to effect changes in your Zigbee network. Upon restart, the device package is regenerated and the correctness of your project is checked with mypy.</p>
+<p>An IDE should give you full code completion, and take the guesswork out of interacting with your smart devices.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your IDE should offer valid choices after each press of .</span>
 <span class="n">devices</span><span class="o">.</span><span class="n">color_bulb</span><span class="o">.</span><span class="n">brightness</span><span class="o">.</span><span class="n">set_normalized</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
@@ -314,7 +314,7 @@
 <h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">¶</a></h2>
 <p>The way to get the most out of pyziggy is to use an IDE with code completion features. PyCharm is my favourite, which is free for non-professional use. If your automation directory contains a virtual environment in <code class="docutils literal notranslate"><span class="pre">.venv</span></code>, all you need to do is open it in PyCharm, and it should be correctly configured.</p>
 <p>Open your <code class="docutils literal notranslate"><span class="pre">automation.py</span></code> file and start editing it. Typing <code class="docutils literal notranslate"><span class="pre">devices.</span></code> should show you suggestions for all the devices that Zigbee2MQTT knows about. Going further and typing e.g. <code class="docutils literal notranslate"><span class="pre">devices.color_bulb.</span></code> will show suggestions for all the parameters of <code class="docutils literal notranslate"><span class="pre">color_bulb</span></code> that can be queried, set or both. Not every parameter is settable, in which case it will not have setter functions.</p>
-<p>All public members of <code class="docutils literal notranslate"><span class="pre">devices</span></code> are your actual devices that Zigbee2MQTT knows about and pyziggy could successfully parse. And all public members of each device are parameters, such as <code class="docutils literal notranslate"><span class="pre">brightness</span></code> or <code class="docutils literal notranslate"><span class="pre">color_temp</span></code> in case of a smart light bulb.</p>
+<p>All public members of <code class="docutils literal notranslate"><span class="pre">devices</span></code> are actual devices that Zigbee2MQTT knows about and pyziggy could successfully parse. The public members of each device are parameters, such as <code class="docutils literal notranslate"><span class="pre">brightness</span></code> or <code class="docutils literal notranslate"><span class="pre">color_temp</span></code> in case of a smart light bulb.</p>
 <p>Most home automation tasks can be implemented by</p>
 <ul class="simple">
 <li><p>calling setters and getters on the parameters in <a class="reference internal" href="generated/pyziggy.parameters.html#module-pyziggy.parameters" title="pyziggy.parameters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyziggy.parameters</span></code></a></p></li>
@@ -475,7 +475,7 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=9dc39874"></script>
+</div><script src="_static/documentation_options.js?v=aa3b121e"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
